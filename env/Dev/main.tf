@@ -38,3 +38,8 @@ module "nic" {
   source = "../../child/azurerm_nic"
   nic = var.nic
 }
+
+module "vm" {
+  source = "../../child/compute/vm"
+  vm = var.vm
+}

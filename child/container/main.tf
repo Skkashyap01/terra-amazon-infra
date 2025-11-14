@@ -1,6 +1,8 @@
-resource "azurerm_storage_container" "cont" {
-    for_each = var.storage_container
-    name = each.value.name
-    storage_account_name  = each.value.storage_account_name
-    container_access_type = each.value.container_access_type
+variable "storage_container" {
+  type = map(object({
+    name                  = string
+    storage_account_name  = string
+    container_access_type = string
+    tags                  = optional(map(string))
+  }))
 }

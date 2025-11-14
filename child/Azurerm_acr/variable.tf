@@ -4,7 +4,9 @@ variable "azurerm_container_registry" {
   resource_group_name      = string
   location                 = string
   sku                      = string
-  admin_enabled            = string
+  admin_enabled            = bool
+  tags = map(string)
+
     })
     )
 }

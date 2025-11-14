@@ -1,12 +1,3 @@
-variable "vnsg" {
-  type = map(object({
-    name                = string
-    location            = optional(string)
-    resource_group_name = optional(string)
-    })
-  )
-}
-
 variable "vnet" {
   type = map(object({
     name                = string

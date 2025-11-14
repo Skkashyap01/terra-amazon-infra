@@ -1,4 +1,24 @@
-variable "azurerm_virtual_machine" {
+variable "resource" {}
+
+variable "storage_account" {}
+
+variable "storage_container" {}
+
+variable "azurerm_container_registry" {}
+
+variable "vnsg" {}
+
+variable "vnet" {}
+
+variable "subnet" {}
+
+variable "vm" {}
+
+variable "pip" {}
+
+variable "nic" {}
+
+variable "vm" {
   type = map(object({
     name                  = string
     resource_group_name   = string
@@ -17,5 +37,12 @@ variable "azurerm_virtual_machine" {
       storage_account_type = string
       disk_size_gb         = number
     })), [])
+  source_image_reference = map(object)
+    publisher = string
+    offer     = string
+    sku       = string
+    version   = string
+      
   }))
 }
+

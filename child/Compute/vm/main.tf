@@ -1,5 +1,5 @@
-resource "azurerm_linux_virtual_machine" "this" {
-  for_each = var.azurerm_virtual_machine
+resource "azurerm_linux_virtual_machine" "vm" {
+  for_each = var.vm
 
   name                  = each.value.name
   resource_group_name   = each.value.resource_group_name
@@ -26,9 +26,9 @@ resource "azurerm_linux_virtual_machine" "this" {
   }
 
   source_image_reference {
-    publisher = "Canonical"
-    offer     = "0001-com-ubuntu-server-focal"
-    sku       = "20_04-lts"
-    version   = "latest"
+    publisher = each.value.publisher
+    offer     = each.value.offer
+    sku       = each.value.sku
+    version   = each.value.version
   }
 }
