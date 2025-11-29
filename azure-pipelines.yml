@@ -11,10 +11,14 @@ pool:  PoolAirtel
   
 
 steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
+- task: PowerShell@2
+  displayName: npm Install
+  inputs:
+    targetType: 'inline'
+    script: 'npm install'
 
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+- task: PowerShell@2
+  displayName: npm run build
+  inputs:
+    targetType: 'inline'
+    script: 'npm run build'
