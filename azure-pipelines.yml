@@ -11,18 +11,3 @@ steps:
   inputs:
     versionSpec: '16.x'
 
-- task: PowerShell@2
-  displayName: "NPM Install"
-  inputs:
-    targetType: 'inline'
-    script: |
-      npm install
-    workingDirectory: '$(Build.SourcesDirectory)/ReactTodoUIMonolith'
-
-- task: PowerShell@2
-  displayName: "NPM Build"
-  inputs:
-    targetType: 'inline'
-    script: |
-      npm run build
-    workingDirectory: '$(Build.SourcesDirectory)/ReactTodoUIMonolith'
