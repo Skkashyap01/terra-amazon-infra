@@ -1,24 +1,19 @@
-# Starter pipeline
-# Start with a minimal pipeline that you can customize to build and deploy your code.
-# Add steps that build, run tests, deploy, and more:
-# https://aka.ms/yaml
-
 trigger: none
- 
 
-
-pool:  PoolAirtel
-  
+pool:
+  name: PoolAirtel
 
 steps:
 - task: PowerShell@2
-  displayName: npm Install
+  displayName: npm install
   inputs:
-    targetType: 'inline'
-    script: 'npm install'
+    targetType: inline
+    script: |
+      npm install
 
 - task: PowerShell@2
   displayName: npm run build
   inputs:
-    targetType: 'inline'
-    script: 'npm run build'
+    targetType: inline
+    script: |
+      npm run build
