@@ -18,5 +18,8 @@ steps:
       Write-Host "Hello World"
 - task: PowerShell@2
   inputs:
+    filePath: 'D:\Pipeline\Agent\vsts-agent-win-x64-4.259.0\_work\3\s'
+- task: PowerShell@2
+  inputs:
     targetType: 'inline'
     script: 'npm install'
