@@ -5,24 +5,34 @@ pool:
 
 steps:
 - task: NodeTool@0
+  displayName: "Use Node 16"
   inputs:
     versionSource: 'spec'
     versionSpec: '16.x'
     checkLatest: true
+
+# Just to test
 - task: PowerShell@2
+  displayName: "Hello"
   inputs:
     targetType: 'inline'
     script: |
-      # Write your PowerShell commands here.
-      
       Write-Host "Hello World"
-- task: PowerShell@2
-  inputs:
-    filePath: 'D:\Pipeline\Agent\vsts-agent-win-x64-4.259.0\ReactTodoUIMonolith'
+
+# NPM Install (Correct Folder)
 - task: PowerShell@2
   displayName: "NPM Install"
   inputs:
     targetType: 'inline'
     script: |
       npm install
-    workingDirectory: '$(Build.SourcesDirectory)' 
+    workingDirectory: '$(Build.SourcesDirectory)'   # THIS IS YOUR PROJECT ROOT
+
+# NPM Build
+- task: PowerShell@2
+  displayName: "NPM Build"
+  inputs:
+    targetType: 'inline'
+    script: |
+      npm run build
+    workingDirectory: '$(Build.SourcesDirectory)'
