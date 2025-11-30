@@ -5,16 +5,16 @@ pool:
 
 steps:
 - task: NodeTool@0
-  displayName: 'Install Node.js'
+  displayName: Install Node.js
   inputs:
-    versionSpec: '18.x'   # or 20.x depending on your app
-
+    versionSpec: '18.x'
 
 - task: PowerShell@2
   displayName: npm install
   inputs:
     targetType: inline
     script: |
+      cd frontend
       npm install
 
 - task: PowerShell@2
@@ -22,4 +22,5 @@ steps:
   inputs:
     targetType: inline
     script: |
+      cd frontend
       npm run build
