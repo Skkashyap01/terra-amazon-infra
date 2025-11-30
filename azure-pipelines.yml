@@ -4,6 +4,11 @@ pool:
   name: PoolAirtel
 
 steps:
+- task: NodeTool@0
+  inputs:
+    versionSource: 'spec'
+    versionSpec: '16.x'
+    checkLatest: true
 - task: PowerShell@2
   inputs:
     targetType: 'inline'
@@ -11,16 +16,7 @@ steps:
       # Write your PowerShell commands here.
       
       Write-Host "Hello World"
-- task: NodeTool@0
-  inputs:
-    versionSource: 'spec'
-    versionSpec: '16.x'
-    checkLatest: true
-- task: NodeTaskRunnerInstaller@0
-  inputs:
-    nodeVersion: '16'
 - task: PowerShell@2
-  displayName: NPM Install
   inputs:
     targetType: 'inline'
     script: 'npm install'
