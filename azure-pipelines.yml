@@ -11,7 +11,8 @@ steps:
 - task: Npm@1
   displayName: NPM Install
   inputs:
-    command: 'install'
+    command: 'custom'
+    customCommand: 'npm install'
 - task: Npm@1
   displayName: NPM run build
   inputs:
