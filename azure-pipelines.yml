@@ -16,3 +16,8 @@ steps:
     versionSource: 'spec'
     versionSpec: '16.x'
     checkLatest: true
+- task: PowerShell@2
+  displayName: NPM Install
+  inputs:
+    targetType: 'inline'
+    script: 'npm install'
