@@ -8,3 +8,12 @@ steps:
   displayName: "Install Node.js"
   inputs:
     versionSpec: "18.x"
+- task: Npm@1
+  displayName: NPM Install
+  inputs:
+    command: 'install'
+- task: Npm@1
+  displayName: NPM run build
+  inputs:
+    command: 'custom'
+    customCommand: 'npm run build'
