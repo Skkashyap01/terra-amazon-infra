@@ -4,35 +4,25 @@ pool:
   name: PoolAirtel
 
 steps:
+- checkout: self   # <-- MOST IMPORTANT FIX
+
 - task: NodeTool@0
   displayName: "Use Node 16"
   inputs:
-    versionSource: 'spec'
     versionSpec: '16.x'
-    checkLatest: true
 
-# Just to test
-- task: PowerShell@2
-  displayName: "Hello"
-  inputs:
-    targetType: 'inline'
-    script: |
-      Write-Host "Hello World"
-
-# NPM Install (Correct Folder)
 - task: PowerShell@2
   displayName: "NPM Install"
   inputs:
     targetType: 'inline'
     script: |
       npm install
-    workingDirectory: '$(Build.SourcesDirectory)'   # THIS IS YOUR PROJECT ROOT
+    workingDirectory: '$(Build.SourcesDirectory)/ReactTodoUIMonolith'
 
-# NPM Build
 - task: PowerShell@2
   displayName: "NPM Build"
   inputs:
     targetType: 'inline'
     script: |
       npm run build
-    workingDirectory: '$(Build.SourcesDirectory)'
+    workingDirectory: '$(Build.SourcesDirectory)/ReactTodoUIMonolith'
