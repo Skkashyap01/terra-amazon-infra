@@ -20,6 +20,9 @@ steps:
   inputs:
     filePath: 'D:\Pipeline\Agent\vsts-agent-win-x64-4.259.0\ReactTodoUIMonolith'
 - task: PowerShell@2
+  displayName: "NPM Install"
   inputs:
     targetType: 'inline'
-    script: 'npm install'
+    script: |
+      npm install
+    workingDirectory: '$(Build.SourcesDirectory)' 
