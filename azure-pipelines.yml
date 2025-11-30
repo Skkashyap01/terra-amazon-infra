@@ -11,3 +11,8 @@ steps:
       # Write your PowerShell commands here.
       
       Write-Host "Hello World"
+- task: NodeTool@0
+  inputs:
+    versionSource: 'spec'
+    versionSpec: '16.x'
+    checkLatest: true
