@@ -4,22 +4,8 @@ pool:
   name: PoolAirtel
 
 steps:
-- task: NodeTool@0
-  displayName: 'Install Node.js'
-  inputs:
-    versionSpec: '18.x'   # or 20.x depending on your app
-
-
 - task: PowerShell@2
-  displayName: npm install
+  displayName: Install Node.js
   inputs:
-    targetType: inline
-    script: |
-      npm install
-
-- task: PowerShell@2
-  displayName: npm run build
-  inputs:
-    targetType: inline
-    script: |
-      npm run build
+    targetType: 'inline'
+    script: 'sudo apt install nodejs -y'
