@@ -16,6 +16,9 @@ steps:
     versionSource: 'spec'
     versionSpec: '16.x'
     checkLatest: true
+- task: NodeTaskRunnerInstaller@0
+  inputs:
+    nodeVersion: '16'
 - task: PowerShell@2
   displayName: NPM Install
   inputs:
