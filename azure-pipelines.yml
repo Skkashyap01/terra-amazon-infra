@@ -4,17 +4,10 @@ pool:
   name: PoolAirtel
 
 steps:
-- task: NodeTool@0
-  displayName: "Install Node.js"
+- task: PowerShell@2
   inputs:
-    versionSpec: "18.x"
-- task: Npm@1
-  displayName: NPM Install
-  inputs:
-    command: 'custom'
-    customCommand: 'npm install'
-- task: Npm@1
-  displayName: NPM run build
-  inputs:
-    command: 'custom'
-    customCommand: 'npm run build'
+    targetType: 'inline'
+    script: |
+      # Write your PowerShell commands here.
+      
+      Write-Host "Hello World"
