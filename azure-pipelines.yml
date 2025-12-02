@@ -2,12 +2,34 @@ trigger: none
 
 pool:
   name: PoolAirtel
+  demands:
+    - Agent.Name -equals Ramesh
 
-steps:
-- checkout: self   # <-- MOST IMPORTANT FIX
+jobs:
+- job: RunOnRamesh
+  displayName: Ramesh Hi chalayega (Ramesh = AirtelPool)
+  pool:
+    name: PoolAirtel
+    demands:
+      - Agent.Name -equals Airtelagent
 
-- task: NodeTool@0
-  displayName: "Use Node 16"
-  inputs:
-    versionSpec: '16.x'
+  steps:
+  - task: PowerShell@2
+    inputs:
+      targetType: 'inline'
+      script: |
+        Write-Host "Hello World from Ramesh Agent!"
+  - task: NodeTool@0
+    inputs:
+      versionSource: 'spec'
+      versionSpec: '16.x'
+  - task: PowerShell@2
+    inputs:
+      targetType: 'inline'
+      script: 'npm run build'
 
+  - task: PowerShell@2
+    inputs:
+      targetType: 'inline'
+      script: 'npm run build'
+     
