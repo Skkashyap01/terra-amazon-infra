@@ -1,5 +1,6 @@
 module "resource_block" {
   source   = "../../child/resource_group"
+  
   resource = var.resource
 }
 
@@ -9,7 +10,7 @@ module "storage" {
 }
 
 module "stg_container" {
-  source            = "../../child/container"
+  source            = "../../child/feature-container"
   storage_container = var.storage_container
 }
 
