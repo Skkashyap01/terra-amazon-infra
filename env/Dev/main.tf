@@ -13,6 +13,15 @@ module "stg_container" {
   storage_container = var.storage_container
 }
 
+module "stg_container" {
+  source            = "../../child/container"
+  storage_container = var.storage_container
+}
+module "stg_container" {
+  source            = "../../child/containers"
+  storage_container = var.storage_container
+}
+
 module "acr" {
   source                     = "../../child/acr"
   azurerm_container_registry = var.azurerm_container_registry
